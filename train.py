@@ -14,7 +14,7 @@ from torch.utils.data import DataLoader
 from src.dataloader import SODLoader
 from src.model import SODModel
 from src.loss import EdgeSaliencyLoss
-
+import math
 
 def parse_arguments():
     parser = argparse.ArgumentParser(description='Parameters to train your model.')
@@ -119,8 +119,8 @@ class Engine:
                                   ca_act_reg))
 
             # Validation
- 
-            if epoch % self.test_interval == 0 or epoch % self.save_interval == 0:
+
+            if math.fmod(epoch, self.test_interval) == 0 or math.fmod(epoch, self.save_interval) == 0:
                 
                 te_avg_loss, te_acc, te_pre, te_rec, te_mae = self.test()
                 mod_chkpt = {'epoch': epoch,
