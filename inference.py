@@ -20,7 +20,7 @@ def parse_arguments():
     parser.add_argument('--imgs_folder', default='/content/test', help='Path to folder containing images', type=str)
     parser.add_argument('--model_path', default='/content/drive/My Drive/Colab Notebooks/models/model_epoch-008_mae-0.1553_loss-0.3755.pth', help='Path to model', type=str)
     parser.add_argument('--use_gpu', default=True, help='Whether to use GPU or not', type=bool)
-    parser.add_argument('--img_size', default=720, help='Image size to be used', type=int)
+    parser.add_argument('--img_size', default=256, help='Image size to be used', type=int)
     parser.add_argument('--bs', default=24, help='Batch Size for testing', type=int)
 
     return parser.parse_args()
